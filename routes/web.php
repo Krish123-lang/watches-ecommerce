@@ -27,6 +27,7 @@ Route::get('/edit_product_quantity/', function () {
 });
 
 Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+Route::get('/place_order', [CartController::class, 'place_order'])->name('place_order');
 
 Route::get('/about', function () {
     return view('about');
