@@ -18,7 +18,7 @@
         </div>
     </section>
 
-    <script src="https://www.paypal.com/sdk/js?client-id=AQXy9bVX7ZjNqt0LfoT5qH1lLccMT-wZWlF85Z6OdEtEneQZigKva3At8bkmeWzQBLhw4gvoz7TTivr0&currency=USD"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
 
     <script>
         paypal.Buttons({
