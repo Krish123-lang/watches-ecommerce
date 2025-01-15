@@ -1,6 +1,6 @@
 @extends('app')
 @section('title')
-    Welcome
+    Home Page
 @endsection
 
 @section('content')
