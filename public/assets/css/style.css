@@ -1071,5 +1071,15 @@ th:last-child{
     background: #3d251f;
 }
 
-
-
+svg{
+    width: 20px;
+}
+nav p{
+    display: none;
+}
+nav .flex a{
+    display: none;
+}
+nav .flex span{
+    display: none;
+}

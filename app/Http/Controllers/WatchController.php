@@ -21,7 +21,7 @@ class WatchController extends Controller
 
     public function products()
     {
-        $products = DB::table('products')->get();
+        $products = DB::table('products')->paginate(4);
         return view('products', compact('products'));
     }
 }

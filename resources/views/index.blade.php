@@ -19,7 +19,7 @@
                                 <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span>Read & reply to messages</li>
                                 <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span>Compatible with all devices</li>
                             </ul>
-                            <a class="btn" href="#">Buy Now</a>
+                            <a class="btn" href="{{ route('products') }}">Buy Now</a>
                         </div>
                     </div>
                     <div class="col-md-5">
@@ -199,7 +199,7 @@
 
                 </div>
 
-                <div class="mt-5 text-center"><a href="" class="btn btn-primary">Buy Now</a></div>
+                <div class="mt-5 text-center"><a href="{{ route('products') }}" class="btn btn-primary">Buy Now</a></div>
 
             </div>
         </div>
