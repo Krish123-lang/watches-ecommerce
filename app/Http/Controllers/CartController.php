@@ -183,4 +183,9 @@ class CartController extends Controller
         }
         return view('cart');
     }
+
+    public function checkout()
+    {
+        return view('checkout');
+    }
 }

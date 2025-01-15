@@ -25,14 +25,14 @@
                             <tr>
                                 <td>
                                     <div class="product-info">
-                                        <img src="{{ asset('assets/img/'.$product['image']) }}">
+                                        <img src="{{ asset('assets/img/' . $product['image']) }}">
                                         <div>
-                                            <p>{{$product['name']}}</p>
-                                            <small><span>$</span>{{$product['price']}}</small>
+                                            <p>{{ $product['name'] }}</p>
+                                            <small><span>$</span>{{ $product['price'] }}</small>
                                             <br>
                                             <form method="post" action="{{ route('remove_from_cart') }}">
                                                 @csrf
-                                                <input type="hidden" name="id" value="{{$product['id']}}">
+                                                <input type="hidden" name="id" value="{{ $product['id'] }}">
                                                 <input type="submit" name="remove_btn" class="remove-btn" value="remove">
                                             </form>
                                         </div>
@@ -42,10 +42,12 @@
                                 <td>
                                     <form method="POST" action="{{ route('edit_product_quantity') }}">
                                         @csrf
-                                        <input type="submit" value="-" class="edit-btn" name="decrease_product_quantity_btn">
-                                        <input type="hidden" name="id" value="{{$product['id']}}">
-                                        <input type="text" name="quantity" value="{{$product['quantity']}}" readonly>
-                                        <input type="submit" value="+" class="edit-btn" name="increase_product_quantity_btn">
+                                        <input type="submit" value="-" class="edit-btn"
+                                            name="decrease_product_quantity_btn">
+                                        <input type="hidden" name="id" value="{{ $product['id'] }}">
+                                        <input type="text" name="quantity" value="{{ $product['quantity'] }}" readonly>
+                                        <input type="submit" value="+" class="edit-btn"
+                                            name="increase_product_quantity_btn">
                                     </form>
                                 </td>
 
@@ -63,7 +65,7 @@
                             <tr>
                                 <td>Total</td>
                                 @if (Session::has('total'))
-                                    <td>${{Session::get('total')}}</td>
+                                    <td>${{ Session::get('total') }}</td>
                                 @endif
                             </tr>
                         @endif
@@ -71,9 +73,13 @@
                 </div>
 
                 <div class="checkout-container">
-                    <form>
-                        <input type="submit" class="btn checkout-btn" value="Checkout" name="">
-                    </form>
+                    @if (Session::has('total'))
+                        @if (Session::get('total') != null)
+                            <form method="GET" action="{{ route('checkout') }}">
+                                <input type="submit" class="btn checkout-btn" value="Checkout" name="">
+                            </form>
+                        @endif
+                    @endif
                 </div>
 
             </section>
