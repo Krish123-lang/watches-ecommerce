@@ -14,54 +14,27 @@
                 </p>
             </div>
             <div class="row align-items-center">
-                <div class="col-md-3">
-                    <div class="product-single">
-                        <div class="product-img">
-                            <img src="img/product-1.png" alt="Product Image">
-                        </div>
-                        <div class="product-content">
-                            <h2>Sports Edition</h2>
-                            <h3>$149</h3>
-                            <a class="btn" href="#">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="product-single">
-                        <div class="product-img">
-                            <img src="img/product-2.png" alt="Product Image">
-                        </div>
-                        <div class="product-content">
-                            <h2>Sports Edition</h2>
-                            <h3>$199</h3>
-                            <a class="btn" href="#">Buy Now</a>
+
+                @foreach ($products as $product)
+                    <div class="col-md-3">
+                        <div class="product-single">
+                            <div class="product-img">
+                                <img src="{{ asset('assets/img/'.$product->image) }}" alt="{{$product->name}}">
+                            </div>
+                            <div class="product-content">
+                                <a href="{{ route('single_product', ['id'=>$product->id]) }}"><h2>{{$product->name}}</h2></a>
+                                @if ($product->sale_price != null)
+                                    <h3 style="text-decoration: line-through">${{$product->price}}</h3>
+                                    <h3>${{$product->sale_price}}</h3>
+                                @else
+                                    <h3>${{$product->price}}</h3>
+                                @endif
+                                <a class="btn" href="#">Buy Now</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="product-single">
-                        <div class="product-img">
-                            <img src="img/product-3.png" alt="Product Image">
-                        </div>
-                        <div class="product-content">
-                            <h2>Sports Edition</h2>
-                            <h3>$249</h3>
-                            <a class="btn" href="#">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="product-single">
-                        <div class="product-img">
-                            <img src="img/product-4.png" alt="Product Image">
-                        </div>
-                        <div class="product-content">
-                            <h2>Sports Edition</h2>
-                            <h3>$299</h3>
-                            <a class="btn" href="#">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
 
         </div>

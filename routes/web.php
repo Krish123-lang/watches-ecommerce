@@ -1,14 +1,13 @@
 <?php
 
+use App\Http\Controllers\WatchController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', [WatchController::class, 'index'])->name('index');
 
-Route::get('/products', function () {
-    return view('products');
-})->name('products');
+Route::get('single_product/{id}', [WatchController::class, 'single_product'])->name('single_product');
+
+Route::get('/products/', [WatchController::class, 'products'])->name('products');
 
 Route::get('/about', function () {
     return view('about');

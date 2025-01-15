@@ -4,26 +4,35 @@
 @endsection
 
 @section('content')
-    <!-- Products Start -->
-    <div id="products">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-12">
-                    <div class="product-single">
-                        <div class="product-img">
-                            <img src="img/product-1.png" alt="Product Image">
-                        </div>
-                        <div class="product-content">
-                            <h2>Sports Edition</h2>
-                            <h3>$149</h3>
-                            <a class="btn" href="#">Buy Now</a>
+    @foreach ($product_array as $product)
+        <!-- Products Start -->
+        <div id="products">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="product-single">
+                            <div class="product-img">
+                                <img src="{{ asset('assets/img/'.$product->image) }}" alt="Product Image">
+                            </div>
+                            <div class="product-content">
+                                <h2>{{ $product->name }}</h2>
+                                @if ($product->sale_price != null)
+                                    <h3 style="text-decoration: line-through">${{ $product->price }}</h3>
+                                    <h3>${{ $product->sale_price }}</h3>
+                                @else
+                                    <h3>${{ $product->price }}</h3>
+                                @endif
+                                <p>{{ $product->description }}</p>
+                                <p>{{ $product->category }} - {{ $product->type }}</p>
+                                <a class="btn" href="#">Buy Now</a>
+                            </div>
                         </div>
                     </div>
+
                 </div>
 
             </div>
-
         </div>
-    </div>
-    <!-- Products End -->
+        <!-- Products End -->
+    @endforeach
 @endsection
