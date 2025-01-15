@@ -16,6 +16,11 @@ Route::get('/add_to_cart/', function () {
     return redirect('/');
 });
 
+Route::post('/remove_from_cart/', [CartController::class, 'remove_from_cart'])->name('remove_from_cart');
+Route::get('/remove_from_cart/', function () {
+    return redirect('/');
+});
+
 Route::get('/about', function () {
     return view('about');
 })->name('about');
