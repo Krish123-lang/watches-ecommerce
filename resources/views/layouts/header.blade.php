@@ -27,16 +27,16 @@
         <div id="nav">
             <div class="container-fluid">
                 <div id="logo" class="pull-left">
-                    <a href="index.html"><img src="{{ asset('assets/img/logo.png') }}" alt="Logo" /></a>
+                    <a href="{{ route('index') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="Logo" /></a>
                 </div>
 
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
-                        <li class="menu-active"><a href="#header">Home</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="">About</a></li>
+                        <li class="menu-active"><a href="{{ route('index') }}">Home</a></li>
+                        <li><a href="{{ route('products') }}">Products</a></li>
+                        <li><a href="{{ route('about') }}">About</a></li>
                         <li><a href="#testimonials">Reviews</a></li>
-                        <li><a href="">Cart</a></li>
+                        <li><a href="{{ route('cart') }}">Cart</a></li>
                     
                     </ul>
                 </nav>
