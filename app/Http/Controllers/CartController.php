@@ -200,7 +200,7 @@ class CartController extends Controller
             $address = $request->input('address');
             $cost = $request->session()->get('total');
             $status = "not paid";
-            $date = date('Y-m-d');
+            $date = date('Y-m-d h:i:s');
             $cart = $request->session()->get('cart');
 
             $order_id = DB::table('orders')->InsertGetId([
